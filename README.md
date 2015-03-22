@@ -9,6 +9,12 @@ Para este ejemplo creamos una carpeta llamada framework y lo guardamos todo all�
 ```zsh
 [vagrant@localhost ~]$ mkdir /www/framework
 ```
+Si prefieres utilizar el comando git clone desde la raiz de tu carpeta compartida ejecuta:
+
+```zsh
+git clone https://github.com/xavi75/Mpwarfwk_App.git framework
+```
+Y te instalará igualmente este repositorio en la carpeta framework.
 
 Para trabajar con este framework debes crear dos virtualhosts. Uno para el entorno de desarrollo y otro para producción.
 Teniendo en cuenta que lo hemos instalado todo en una carpeta llamada framework nuestro virtualhost de desarrollo seria el que apunta a index_dev de la carpeta public:
