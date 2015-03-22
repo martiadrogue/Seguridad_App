@@ -1,0 +1,19 @@
+Home:
+    resource: "Controllers\Home\Home"
+    path: /
+    actiondefault: build
+
+Test:
+    resource: "Controllers\Test\Test"
+    path: /test
+    actiondefault: build
+
+SubscriberList:
+    resource: "Controllers\SubscriberList\SubscriberList"
+    path: /SubscriberList
+    actiondefault: build
+
+Subscribe:
+    resource: "Controllers\Subscribe\Subscribe"
+    path: /Subscribe
+    actiondefault: build

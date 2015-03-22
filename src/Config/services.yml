@@ -1,0 +1,7 @@
+TemplateSmarty:
+    class: "Mpwarfwk\Templating\TemplateSmarty"
+    arguments: ['Smarty']
+
+TemplateTwig:
+    class: "Mpwarfwk\Templating\TemplateTwig"
+    arguments: ['Twig_Loader_Filesystem', 'Twig_Environment']

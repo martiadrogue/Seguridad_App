@@ -1,0 +1,51 @@
+/* CSS code begins*/
+
+
+
+body {
+font-family:Arial;
+font-size:12px;
+}
+
+a:visited, a:link, a:active {
+font-family:Arial;
+font-weight:normal;
+font-size:12px;
+text-decoration :normal;
+}
+
+a:hover {
+font-family:Arial;
+font-weight:normal;
+font-size:12px;
+text-decoration :underline;
+}
+
+h1 {
+font-family:Arial;
+text-align:left;
+}
+
+h2 {
+font-family:Arial;
+text-align:left;
+}
+
+h3 {
+font-family:Arial;
+text-align:left;
+}
+
+p {
+font-family:Arial;
+font-size:12px;
+text-align:left;
+}
+
+blockquote {
+font-family:Arial;
+font-size:12px;
+text-align:left;
+}
+
+/* CSS code ends*/
