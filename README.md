@@ -62,7 +62,7 @@ Reiniciamos Apache:
 y ahora desde www/framework lanzamos el comando:
 
 ```zsh
-[vagrant@localhost ~]$ composer update
+[vagrant@vagrant framework]$ composer update
 ```
 
 Y se nos instalarán el resto de archivos (básicamente el framework con todas sus dependencias, twig, smarty, yaml...)
