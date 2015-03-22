@@ -69,6 +69,6 @@ Y se nos instalarán el resto de archivos (básicamente el framework con todas s
 
 Si todo ha ido bien, desde el navegador, escribiendo ```'framework.local'``` o ```'framework.pro'``` podrás acceder a las páginas que he creado como demo, que explican diversas de las posibilidades del framework.
 
-Antes, pero, necesitarás crearte una base de datos llamada framework para poder hacer la ruta completa por el framework. Tienes un dump de la misma en la carpeta ```zshdatabase_dump```.
+Antes, pero, necesitarás crearte una base de datos llamada framework para poder hacer la ruta completa por el framework. Tienes un dump de la misma en la carpeta ```database_dump```.
 
 También, antes de empezar tendrás que acceder a ```src/Config/DatabaseConfig.php``` y cambiar tus datos de acceso a mysql
