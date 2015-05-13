@@ -1,19 +1,19 @@
 {
-	"name": "xavi75/mpwarfwk-standard-edition",
+	"name": "xavi75/Seguridad-standard-edition",
 	"description": "Standard APP using MPWAR Framework",
 	"license": "Apache-2.0",
 	"keywords": [],
-	"homepage": "https://github.com/xavi75/mpwarfwk",
+	"homepage": "https://github.com/xavi75/Seguridad",
 	"type": "project",
 	"repositories": [
 			{
 				"type": "vcs",
-				"url": "https://github.com/xavi75/mpwarfwk"
+				"url": "https://github.com/xavi75/Seguridad"
 			}
 	],
 	"require": {
 				"php": ">=5.4.0",
-				"xavi75/mpwarfwk": "dev-devel",
+				"xavi75/Seguridad": "dev-devel",
 				"symfony/yaml": "2.6.*",
 				"smarty/smarty": "~3.1",
 				"twig/twig": "~1.0"
