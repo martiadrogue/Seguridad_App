@@ -8,8 +8,6 @@ use Mpwarfwk\Http\Session;
 
 require_once("../vendor/autoload.php");
 
-echo "<h1> Entorno de desarrollo, con errores y barra debug activados </h1>";
-
 $request = new Request(new Session());
 $bootstrap = new Bootstrap('DEV', true);
 $response = $bootstrap->execute($request);

@@ -17,3 +17,18 @@ Subscribe:
     resource: "Controllers\Subscribe\Subscribe"
     path: /Subscribe
     actiondefault: build
+
+Login:
+    resource: "Controllers\login\login"
+    path: /Login
+    actiondefault: build
+
+Register:
+    resource: "Controllers\Register\Register"
+    path: /Register
+    actiondefault: build
+
+Contact:
+    resource: "Controllers\Contact\Contact"
+    path: /Contact
+    actiondefault: build

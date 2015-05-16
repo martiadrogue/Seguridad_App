@@ -11,6 +11,9 @@
 		 <li><a href="/test">Test</a></li>
 		 <li><a href="/subscriberlist">SubscriberList</a></li>
 		 <li><a href="/subscribe">Subscribe to the newsleter</a></li>
+		 <li><a href="/login">login</a></li>
+		 <li><a href="/register">Register</a></li>
+		 <li><a href="/contact">Contacts</a></li>
 </ul> 
 
 <pre>

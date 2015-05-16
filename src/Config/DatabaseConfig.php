@@ -2,7 +2,7 @@
 
 namespace Config;
 
-return array( "DATABASE" => "framework", 
+return array( "DATABASE" => "phpdb", 
 			  "HOST" => "localhost",  
 			  "USER" => "root", 
 			  "PASSWORD" => "strongpassword");
