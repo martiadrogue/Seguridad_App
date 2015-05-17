@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.1.73, for redhat-linux-gnu (x86_64)
 --
--- Host: localhost    Database: framework
+-- Host: localhost    Database: seguridad
 -- ------------------------------------------------------
 -- Server version	5.1.73
 
@@ -16,28 +16,54 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `subscribers`
+-- Table structure for table `user_contact`
 --
 
-DROP TABLE IF EXISTS `subscribers`;
+DROP TABLE IF EXISTS `user_contact`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `subscribers` (
+CREATE TABLE `user_contact` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(32) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+  `id_user` int(11) NOT NULL,
+  `contact` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `subscribers`
+-- Dumping data for table `user_contact`
 --
 
-LOCK TABLES `subscribers` WRITE;
-/*!40000 ALTER TABLE `subscribers` DISABLE KEYS */;
-INSERT INTO `subscribers` VALUES (6,'alonso@gmail.com'),(11,'lili@lala.es'),(9,'marcmin@gmail.com'),(13,'mariamila@gmail.com'),(8,'mi@mail.com'),(7,'pepito@gmail.com'),(15,'totitu@mail.com'),(14,'tu@mail.com'),(1,'xavier.pera@gmail.com');
-/*!40000 ALTER TABLE `subscribers` ENABLE KEYS */;
+LOCK TABLES `user_contact` WRITE;
+/*!40000 ALTER TABLE `user_contact` DISABLE KEYS */;
+INSERT INTO `user_contact` VALUES (1,1,'juan 344'),(3,2,'alain'),(4,2,'jaume riudoms 123 12 33 45'),(5,1,'pepito 122 34 56 78');
+/*!40000 ALTER TABLE `user_contact` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user` varchar(15) NOT NULL,
+  `password` varchar(35) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user` (`user`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'xavi','abcde'),(2,'sarah','abcde');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +75,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-03-22 21:49:44
+-- Dump completed on 2015-05-17 21:07:03
