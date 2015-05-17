@@ -16,6 +16,7 @@
 		  <li><a href="/login">Login</a></li>
 		  <li><a href="/register">Register</a></li>
 		  <li><a href="/contact">Contacts</a></li>
+		  <li><a href="/logout">Logout</a></li>
 		</ul> 
 
         <h3>Para acceder al contenido de la web debes estar registrado. Rellena los siguientes campos:</h3>

@@ -32,3 +32,8 @@ Contact:
     resource: "Controllers\Contact\Contact"
     path: /Contact
     actiondefault: build
+
+Logout:
+    resource: "Controllers\logout\logout"
+    path: /Logout
+    actiondefault: build

@@ -14,6 +14,7 @@
 		 <li><a href="/login">login</a></li>
 		 <li><a href="/register">Register</a></li>
 		 <li><a href="/contact">Contacts</a></li>
+		 <li><a href="/logout">Logout</a></li>
 </ul> 
 
 <pre>

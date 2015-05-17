@@ -19,9 +19,9 @@
 		  <li><a href="/logout">Logout</a></li>
 		</ul> 
 
-		<h4>Borrado correctamente</h4>
+		<h3>sesión finalizada</h3>
 		
-		<p>vuelve a la <a href="/contact">lista</a></p>
+		<a href="/">volver a la pagina de inicio</a>
 
     </body>
 </html>

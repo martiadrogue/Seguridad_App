@@ -23,7 +23,7 @@ class Login extends BaseController{
             $database = new PdoDatabase();
 			$user = $request->post->getParam('nombre');
 			$password = $request->post->getParam('contraseña');
-            $querySelect = $database->selectFromTable('SELECT password FROM users WHERE user = :user', array('user' => $user));
+            $querySelect = $database->selectFromTable('SELECT id, password FROM users WHERE user = :user', array('user' => $user));
             //echo count($querySelect);
 			//var_dump($querySelect[0]['password']);
 			if (count($querySelect) == 1 && $querySelect[0]['password'] == $password){
@@ -31,6 +31,8 @@ class Login extends BaseController{
 				/*la sesion ya se inicia desde el request*/
 				//session_start();
 				$request->session->setSession('valid_user', true);
+				$request->session->setSession('user_ref', $querySelect[0]['id']);
+				//echo $querySelect[0]['id'];
 				//echo var_dump($request->session->getSession('valid_user'));
 				//echo $_SESSION['valid_user'];
 			}

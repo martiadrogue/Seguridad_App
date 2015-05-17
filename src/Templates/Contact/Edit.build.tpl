@@ -16,13 +16,14 @@
 		  <li><a href="/login">Login</a></li>
 		  <li><a href="/register">Register</a></li>
 		  <li><a href="/contact">Contacts</a></li>
+		  <li><a href="/logout">Logout</a></li>
 		</ul> 
 
 		<h3>modo edición:</h3>
 		
 		<ul>
    			{% for contact in contacts %}
-        		<p><form action="/contact/update" method="post"><input type="text" name="data_updated" value="{{ contact.task }}"><input type="text" name="id" value={{ contact.id }} hidden=true><input type="submit" value="update"></form></p>
+        		<p><form action="/contact/update" method="post"><input type="text" name="data_updated" value="{{ contact.contact }}"><input type="text" name="id" value={{ contact.id }} hidden=true><input type="submit" value="update"></form></p>
     		{% endfor %}
 		</ul>
 
