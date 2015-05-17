@@ -3,7 +3,7 @@
     <head>
         <title>My Webpage</title>
         {% block stylesheets %}
-            <link href="{{ 'css/bootstrap.css' }}" type="text/css" rel="stylesheet" />
+            <link href="{{ '../css/bootstrap.css' }}" type="text/css" rel="stylesheet" />
          {% endblock %}
     </head>
     <body>
@@ -20,23 +20,9 @@
 		  <li><a href="/personalarea">Personal Area</a></li>
 		</ul> 
 
-        <h3>Para acceder al contenido de la web debes estar logueado. Por favor, indica nombre/password:</h3>
-
-    <form action="/login" method="post">
-    
-        <div id="formHeader">Formulario de Login</div>
-        
-		<div id="formBody">
-			<label for="campo-nombre">Nombre:</label>
-			<input type="text" name="nombre">
-
-			<label for="campo-contraseña">Password:</label>
-			<input name="contraseña" type="password">
-
-			<input type="submit" value="Enviar el formulario">
-		</div> 
-        
-    </form>
+		<h4>Actualizado correctamente</h4>
+		
+		<p>vuelve a la <a href="/personalarea">Area Personal</a></p>
 
     </body>
 </html>

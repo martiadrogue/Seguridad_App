@@ -37,3 +37,8 @@ Logout:
     resource: "Controllers\logout\logout"
     path: /Logout
     actiondefault: build
+
+PersonalArea:
+    resource: "Controllers\personalArea\personalArea"
+    path: /PersonalArea
+    actiondefault: build

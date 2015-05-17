@@ -17,6 +17,7 @@
 		  <li><a href="/register">Register</a></li>
 		  <li><a href="/contact">Contacts</a></li>
 		  <li><a href="/logout">Logout</a></li>
+		  <li><a href="/personalarea">Personal Area</a></li>
 		</ul> 
 
         <h3>Para añadir un contacto rellena el siguiente campo:</h3>
