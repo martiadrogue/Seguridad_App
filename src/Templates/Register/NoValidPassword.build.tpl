@@ -19,10 +19,8 @@
 		  <li><a href="/logout">Logout</a></li>
 		  <li><a href="/personalarea">Personal Area</a></li>
 		</ul> 
-
-        <h3>Para acceder al contenido de la web debes estar registrado. Rellena los siguientes campos:</h3>
 		
-		<h4>la contraseña debe tener:</h4>
+		<h4>La contraseña no es válida. Debe tener:</h4>
 		
 		<ul>
 			<li> al menos una letra mayúscula </li>
@@ -31,21 +29,7 @@
 			<li> como mínimo 8 caracteres </li>
 		</ul>
 
-    <form action="/register" method="post">
-    
-        <div id="formHeader">Formulario de registro</div>
-        
-		<div id="formBody">
-			<label for="campo-nombre">Nombre:</label>
-			<input type="text" name="nombre">
-
-			<label for="campo-contraseña">Password:</label>
-			<input type="password" name="contraseña">
-
-			<input type="submit" value="registrarme">
-		</div> 
-        
-    </form>
+		<p><a href="/register">Inténtalo otra vez</a></p>
 
     </body>
 </html>

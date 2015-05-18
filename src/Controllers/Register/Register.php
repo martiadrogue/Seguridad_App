@@ -23,6 +23,10 @@ class Register extends BaseController{
             $database = new PdoDatabase();
 			$user = $request->cleanData($request->post->getParam('nombre'));
 			$password = $request->cleanData($request->post->getParam('contraseña'));
+				if(!preg_match("/^.*(?=.{8,})((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/",$password)) { 
+					$template = $this->container->get('TemplateTwig');
+					return new Response($template->render('Register/NoValidPassword.build.tpl'));
+				}
 			$password = password_hash($password, PASSWORD_DEFAULT);
             $queryInsert = $database->insertInTable('INSERT INTO users SET user = :user, password = :password', array('user' => $user, 'password' => $password));
 			
