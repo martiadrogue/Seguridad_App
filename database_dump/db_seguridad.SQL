@@ -25,9 +25,9 @@ DROP TABLE IF EXISTS `user_contact`;
 CREATE TABLE `user_contact` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL,
-  `contact` varchar(100) DEFAULT NULL,
+  `contact` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `user_contact` (
 
 LOCK TABLES `user_contact` WRITE;
 /*!40000 ALTER TABLE `user_contact` DISABLE KEYS */;
-INSERT INTO `user_contact` VALUES (1,1,'juan 344'),(3,2,'alain'),(4,2,'jaume riudoms 123 12 33 45'),(5,1,'pepito 122 34 56 78');
+INSERT INTO `user_contact` VALUES (1,1,'juanito 666 555 444'),(2,1,'pepito 122 34 56 78'),(3,2,'alain 222 333 444');
 /*!40000 ALTER TABLE `user_contact` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,8 +49,8 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user` varchar(15) NOT NULL,
-  `password` varchar(35) NOT NULL,
+  `user` varchar(30) NOT NULL,
+  `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user` (`user`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
@@ -62,7 +62,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'xavi','abcde'),(2,'sarah','abcde');
+INSERT INTO `users` VALUES (1,'xavi','$2y$10$.2Si4cXXysnUphveBSrM6eKfv/y0z4A/OTvPprVekHz2cHT.GUlYm'),(2,'sarah','$2y$10$dbn3aKq23VFxFq992QE1G.YTIH3wXJ4JpFAmzMehPtRkGZoHUPsTa');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -75,4 +75,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-17 21:07:03
+-- Dump completed on 2015-05-18 13:44:24

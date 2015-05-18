@@ -21,8 +21,9 @@ class Register extends BaseController{
         if($FORM_SUBMITTED_BY_METHOD == 'POST'){
 
             $database = new PdoDatabase();
-			$user = $request->post->getParam('nombre');
-			$password = $request->post->getParam('contraseña');
+			$user = $request->cleanData($request->post->getParam('nombre'));
+			$password = $request->cleanData($request->post->getParam('contraseña'));
+			$password = password_hash($password, PASSWORD_DEFAULT);
             $queryInsert = $database->insertInTable('INSERT INTO users SET user = :user, password = :password', array('user' => $user, 'password' => $password));
 			
 			$template = $this->container->get('TemplateTwig');

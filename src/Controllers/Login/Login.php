@@ -21,12 +21,15 @@ class Login extends BaseController{
         if($FORM_SUBMITTED_BY_METHOD == 'POST'){
 
             $database = new PdoDatabase();
-			$user = $request->post->getParam('nombre');
-			$password = $request->post->getParam('contraseña');
+			$user = $request->cleanData($request->post->getParam('nombre'));
+			$password = $request->cleanData($request->post->getParam('contraseña'));
             $querySelect = $database->selectFromTable('SELECT id, password FROM users WHERE user = :user', array('user' => $user));
             //echo count($querySelect);
 			//var_dump($querySelect[0]['password']);
-			if (count($querySelect) == 1 && $querySelect[0]['password'] == $password){
+			//echo $password;
+			//if (count($querySelect) == 1 && $querySelect[0]['password'] == $password){
+			if (count($querySelect) == 1 && password_verify($password, $querySelect[0]['password'])){
+			
 				echo 'Estas dentro, ahora toca redirigir a la pagina de todolist y iniciar sesion';
 				/*la sesion ya se inicia desde el request*/
 				//session_start();

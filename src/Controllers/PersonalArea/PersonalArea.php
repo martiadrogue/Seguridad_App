@@ -24,7 +24,7 @@ class PersonalArea extends BaseController{
 		if ($request->session->getSession('valid_user') == true){
 		
 			$database = new PdoDatabase();
-			$query = 'SELECT id, user FROM users WHERE id = ' . $request->session->getSession('user_ref');
+			$query = 'SELECT id, user FROM users WHERE id = ' . $request->cleanData($request->session->getSession('user_ref'));
 			$resultQuery = $database->selectFromTable($query);
 			
 			$template = $this->container->get('TemplateTwig');
@@ -49,7 +49,7 @@ class PersonalArea extends BaseController{
 			if($FORM_SUBMITTED_BY_METHOD == 'POST'){
 
 				$database = new PdoDatabase();
-				$id = $request->post->getParam('id');
+				$id = $request->cleanData($request->post->getParam('id'));
 				$query = 'SELECT id, user FROM users WHERE id =' . $id;
 				$resultQuery = $database->selectFromTable($query);
 			
@@ -96,8 +96,8 @@ class PersonalArea extends BaseController{
 			if($FORM_SUBMITTED_BY_METHOD == 'POST'){
 
 				$database = new PdoDatabase();
-				$id = $request->post->getParam('id');
-				$newUser = $request->post->getParam('data_updated');
+				$id = $request->cleanData($request->post->getParam('id'));
+				$newUser = $request->cleanData($request->post->getParam('data_updated'));
 				$resultQuery = $database->updateTable('UPDATE users SET user = :user WHERE id = :id', array('user' => $newUser, 'id' => $id));
 			
 				$template = $this->container->get('TemplateTwig');
