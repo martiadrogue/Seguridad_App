@@ -42,3 +42,8 @@ PersonalArea:
     resource: "Controllers\personalArea\personalArea"
     path: /PersonalArea
     actiondefault: build
+
+AccountVerification:
+    resource: "Controllers\AccountVerification\AccountVerification"
+    path: /AccountVerification
+    actiondefault: build

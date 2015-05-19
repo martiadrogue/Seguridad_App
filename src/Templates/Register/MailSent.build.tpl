@@ -18,8 +18,8 @@
 		  <li><a href="/personalarea">Personal Area</a></li>
 		</ul> 
 
-        <h2>gracias por registrarte</h2>
-        <h3>cuando quieras puedes hacer login</h3>
+        <h2>ya casi estamos!</h2>
+        <h3>te hemos enviado un email para verificar tu identidad, cuando lo abras y hagas click en el enlace ya podrás hacer login en tu cuenta</h3>
 
         <a href="/Login">Página de login</a>
     </body>

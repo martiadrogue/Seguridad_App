@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>subscription done</title>
-        <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
+        <link href="../css/bootstrap.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
         <h2>Menú Principal</h2>

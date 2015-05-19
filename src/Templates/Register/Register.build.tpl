@@ -38,6 +38,9 @@
 		<div id="formBody">
 			<label for="campo-nombre">Nombre:</label>
 			<input type="text" name="nombre">
+			
+			<label for="campo-email">Email:</label>
+			<input type="email" name="email">
 
 			<label for="campo-contraseña">Password:</label>
 			<input type="password" name="contraseña">
