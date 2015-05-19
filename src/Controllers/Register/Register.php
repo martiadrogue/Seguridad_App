@@ -40,6 +40,7 @@ class Register extends BaseController{
 				}
 			$password = password_hash($password, PASSWORD_DEFAULT);
 			$temporalHash = password_hash($user, PASSWORD_DEFAULT);
+			$temporalHash = str_replace("/", "", $temporalHash);
             $queryInsert = $database->insertInTable('INSERT INTO users SET user = :user, email = :email, password = :password, temporalhash = :temporalhash', array('user' => $user, 'email' => $email, 'password' => $password, 'temporalhash' => $temporalHash));
 			
 			$para      = $email;
