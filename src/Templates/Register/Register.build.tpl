@@ -37,13 +37,13 @@
         
 		<div id="formBody">
 			<label for="campo-nombre">Nombre:</label>
-			<input type="text" name="nombre">
+			<input autocomplete="off" type="text" name="nombre">
 			
 			<label for="campo-email">Email:</label>
-			<input type="email" name="email">
+			<input autocomplete="off" type="email" name="email">
 
 			<label for="campo-contraseña">Password:</label>
-			<input type="password" name="contraseña">
+			<input autocomplete="off" type="password" name="contraseña">
 
 			<input type="submit" value="registrarme">
 		</div> 

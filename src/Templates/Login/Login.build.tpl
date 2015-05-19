@@ -28,10 +28,10 @@
         
 		<div id="formBody">
 			<label for="campo-nombre">Nombre:</label>
-			<input type="text" name="nombre">
+			<input autocomplete="off" type="text" name="nombre">
 
 			<label for="campo-contraseña">Password:</label>
-			<input name="contraseña" type="password">
+			<input autocomplete="off" name="contraseña" type="password">
 
 			<input type="submit" value="Enviar el formulario">
 		</div> 
