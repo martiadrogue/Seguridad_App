@@ -38,6 +38,7 @@ class Login extends BaseController{
 				//echo $querySelect[0]['id'];
 				//echo var_dump($request->session->getSession('valid_user'));
 				//echo $_SESSION['valid_user'];
+				header("Location: http://www.seguridad.dev/contact");
 			}
 			//$template = $this->container->get('TemplateTwig');
             //return new Response($template->render('Success/Success.tpl'));
