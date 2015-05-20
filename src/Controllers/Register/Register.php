@@ -29,12 +29,17 @@ class Register extends BaseController{
 			$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 			$password = $request->cleanData($request->post->getParam('contraseña'));
 			
+				if(!preg_match("/^[a-z\d_]{4,15}$/i",$user)) { 
+					$template = $this->container->get('TemplateTwig');
+					return new Response($template->render('Register/NoValidUser.build.tpl'));
+				}
+			
 				if($email == false) { 
 					$template = $this->container->get('TemplateTwig');
 					return new Response($template->render('Register/NoValidEmail.build.tpl'));
 				}
-			
-				if(!preg_match("/^.*(?=.{8,})((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/",$password)) { 
+				echo 'count->' . count($password);
+				if(!preg_match("/^.*(?=.{8,})((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/",$password) || strlen($password) > 16) { 
 					$template = $this->container->get('TemplateTwig');
 					return new Response($template->render('Register/NoValidPassword.build.tpl'));
 				}

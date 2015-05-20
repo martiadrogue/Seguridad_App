@@ -20,14 +20,7 @@
 		  <li><a href="/personalarea">Personal Area</a></li>
 		</ul> 
 		
-		<h4>La contraseña no es válida. Debe tener:</h4>
-		
-		<ul>
-			<li> al menos una letra mayúscula </li>
-			<li> al menos una letra minúscula </li>
-			<li> al menos un número o caracter especial </li>
-			<li> como mínimo 8 caracteres y como máximo 15</li>
-		</ul>
+		<h4>El usuario no no es válido. Debe tener entre 4 y 15 carácteres, sean letras o números</h4>
 
 		<p><a href="/register">Inténtalo otra vez</a></p>
 
