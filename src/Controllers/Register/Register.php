@@ -28,6 +28,12 @@ class Register extends BaseController{
 			$email = $request->cleanData($request->post->getParam('email'));
 			$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 			$password = $request->cleanData($request->post->getParam('contraseña'));
+			$querySelectUser = $database->selectFromTable('SELECT id FROM users WHERE user = :user', array('user' => $user));
+			
+			if (count($querySelectUser) > 0){
+				$template = $this->container->get('TemplateTwig');
+				return new Response($template->render('Register/UserAlreadyExists.build.tpl'));
+			}
 			
 				if(!preg_match("/^[a-z\d_]{4,15}$/i",$user)) { 
 					$template = $this->container->get('TemplateTwig');
@@ -38,7 +44,14 @@ class Register extends BaseController{
 					$template = $this->container->get('TemplateTwig');
 					return new Response($template->render('Register/NoValidEmail.build.tpl'));
 				}
-				echo 'count->' . count($password);
+				
+				$querySelectEmail = $database->selectFromTable('SELECT id FROM users WHERE email = :email', array('email' => $email));
+				
+			if (count($querySelectEmail) > 0){
+				$template = $this->container->get('TemplateTwig');
+				return new Response($template->render('Register/EmailAlreadyExists.build.tpl'));
+			}
+				
 				if(!preg_match("/^.*(?=.{8,})((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/",$password) || strlen($password) > 16) { 
 					$template = $this->container->get('TemplateTwig');
 					return new Response($template->render('Register/NoValidPassword.build.tpl'));
