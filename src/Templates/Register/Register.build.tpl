@@ -46,6 +46,9 @@
 
 			<label for="campo-contraseña">Password:</label>
 			<input autocomplete="off" type="password" name="contraseña">
+			
+			<label for="campo-contraseña">Password Repeat:</label>
+			<input autocomplete="off" type="password" name="contraseña2">
 
 			<input type="submit" value="registrarme">
 		</div> 

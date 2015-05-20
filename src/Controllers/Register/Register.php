@@ -28,6 +28,13 @@ class Register extends BaseController{
 			$email = $request->cleanData($request->post->getParam('email'));
 			$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 			$password = $request->cleanData($request->post->getParam('contraseña'));
+			$passwordRepeat = $request->cleanData($request->post->getParam('contraseña2'));
+			
+			if ($password != $passwordRepeat){
+				$template = $this->container->get('TemplateTwig');
+				return new Response($template->render('Register/PasswordRepeatNotMatch.build.tpl'));
+			}
+			
 			$querySelectUser = $database->selectFromTable('SELECT id FROM users WHERE user = :user', array('user' => $user));
 			
 			if (count($querySelectUser) > 0){
