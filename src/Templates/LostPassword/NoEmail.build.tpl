@@ -20,25 +20,9 @@
 		  <li><a href="/personalarea">Personal Area</a></li>
 		</ul> 
 
-        <h3>Para acceder al contenido de la web debes estar logueado. Por favor, indica nombre/password:</h3>
+        <h3>Lo sentimos, este correo no se encuentra en la base de datos</h3>
 
-    <form action="/login" method="post">
-    
-        <div id="formHeader">Formulario de Login</div>
-        
-		<div id="formBody">
-			<label for="campo-nombre">Nombre:</label>
-			<input autocomplete="off" type="text" name="nombre">
-
-			<label for="campo-contraseña">Password:</label>
-			<input autocomplete="off" name="contraseña" type="password">
-
-			<input type="submit" value="Enviar el formulario">
-		</div> 
-        
-    </form>
-	
-	<p>Has olvidado tu password? <a href="/LostPassword">Recuperar</a></p>
+		<p>volver a <a href="/login">Login</a></p>
 
     </body>
 </html>

@@ -47,3 +47,13 @@ AccountVerification:
     resource: "Controllers\AccountVerification\AccountVerification"
     path: /AccountVerification
     actiondefault: build
+
+LostPassword:
+    resource: "Controllers\lostPassword\lostPassword"
+    path: /LostPassword
+    actiondefault: build
+
+ChangePassword:
+    resource: "Controllers\ChangePassword\ChangePassword"
+    path: /ChangePassword
+    actiondefault: build

@@ -3,7 +3,7 @@
     <head>
         <title>My Webpage</title>
         {% block stylesheets %}
-            <link href="{{ 'css/bootstrap.css' }}" type="text/css" rel="stylesheet" />
+            <link href="{{ '../css/bootstrap.css' }}" type="text/css" rel="stylesheet" />
          {% endblock %}
     </head>
     <body>
@@ -20,25 +20,25 @@
 		  <li><a href="/personalarea">Personal Area</a></li>
 		</ul> 
 
-        <h3>Para acceder al contenido de la web debes estar logueado. Por favor, indica nombre/password:</h3>
+        <h3>Indicanos tu nueva contraseña:</h3>
 
-    <form action="/login" method="post">
+    <form action="/changepassword" method="post">
     
-        <div id="formHeader">Formulario de Login</div>
+        <div id="formHeader">contraseña:</div>
         
 		<div id="formBody">
-			<label for="campo-nombre">Nombre:</label>
-			<input autocomplete="off" type="text" name="nombre">
-
-			<label for="campo-contraseña">Password:</label>
-			<input autocomplete="off" name="contraseña" type="password">
-
-			<input type="submit" value="Enviar el formulario">
+			<label for="campo-nombre">Password:</label>
+			<input autocomplete="off" type="password" name="password">
+			
+			<label for="campo-nombre">Repeat Email:</label>
+			<input autocomplete="off" type="password" name="password2">
+			
+			<input type="text" name="hash" value={{ hash }} hidden=true>
+			
+			<input type="submit" value="Enviar">
 		</div> 
         
     </form>
-	
-	<p>Has olvidado tu password? <a href="/LostPassword">Recuperar</a></p>
 
     </body>
 </html>

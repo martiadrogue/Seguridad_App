@@ -20,25 +20,20 @@
 		  <li><a href="/personalarea">Personal Area</a></li>
 		</ul> 
 
-        <h3>Para acceder al contenido de la web debes estar logueado. Por favor, indica nombre/password:</h3>
+        <h3>Has olvidado tu contraseña? indícanos tu correo y te enviaremos un email para resetearla:</h3>
 
-    <form action="/login" method="post">
+    <form action="/lostpassword" method="post">
     
-        <div id="formHeader">Formulario de Login</div>
+        <div id="formHeader">Formulario de recuperación de contraseña</div>
         
 		<div id="formBody">
-			<label for="campo-nombre">Nombre:</label>
-			<input autocomplete="off" type="text" name="nombre">
+			<label for="campo-nombre">Email:</label>
+			<input autocomplete="off" type="email" name="email">
 
-			<label for="campo-contraseña">Password:</label>
-			<input autocomplete="off" name="contraseña" type="password">
-
-			<input type="submit" value="Enviar el formulario">
+			<input type="submit" value="Enviar">
 		</div> 
         
     </form>
-	
-	<p>Has olvidado tu password? <a href="/LostPassword">Recuperar</a></p>
 
     </body>
 </html>
