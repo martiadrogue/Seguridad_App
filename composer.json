@@ -1,19 +1,19 @@
 {
-	"name": "xavi75/Seguridad-standard-edition",
+	"name": "martiadrogue/Seguridad_App",
 	"description": "Standard APP using MPWAR Framework",
 	"license": "Apache-2.0",
 	"keywords": [],
-	"homepage": "https://github.com/xavi75/Seguridad",
+	"homepage": "https://github.com/martiadrogue/Seguridad",
 	"type": "project",
 	"repositories": [
 			{
-				"type": "vcs",
-				"url": "https://github.com/xavi75/Seguridad"
+				"type": "git",
+				"url": "https://github.com/martiadrogue/Seguridad"
 			}
 	],
 	"require": {
 				"php": ">=5.4.0",
-				"xavi75/Seguridad": "dev-devel",
+				"martiadrogue/Seguridad": "dev-devel",
 				"symfony/yaml": "2.6.*",
 				"smarty/smarty": "~3.1",
 				"twig/twig": "~1.0"
@@ -21,7 +21,9 @@
 	"minimum-stability": "dev",
 	"autoload": {
 			"psr-4": {
-					"": "src/"
-					}
+				"Config\\": "src/Config/",
+				"Controllers\\": "src/Controllers/",
+				"Templates\\": "src/Templates/"
 			}
+	}
 }
