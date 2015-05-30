@@ -54,6 +54,8 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `temporalhash` varchar(255) DEFAULT NULL,
   `active` binary(1) NOT NULL DEFAULT '0',
+  `public_image` varchar(255) DEFAULT NULL,
+  `real_image` char(38) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user` (`user`),
   UNIQUE KEY `email` (`email`)
@@ -66,7 +68,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (5,'xavi','xavier.pera@gmail.com','$2y$10$m5tJDU792twLL7E.ivBDq.ZMQLrOM/DoVXFD24cc6dXBa7TVja1Ay',NULL,'1');
+INSERT INTO `users` VALUES (5,'xavi','xavier.pera@gmail.com','$2y$10$m5tJDU792twLL7E.ivBDq.ZMQLrOM/DoVXFD24cc6dXBa7TVja1Ay',NULL,'1', NULL, NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
