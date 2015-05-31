@@ -23,7 +23,7 @@
 
 		<ul>
         		<p> User = {{ personalarea.user }} <form action="/personalarea/changeUser" method="post"><input type="text" name="id" value={{ personalarea.id }} hidden=true><input type="submit" value="change"></form></p>
-				<p> Password = ******** <form action="/personalarea/changePassword" method="post"><input type="text" name="id" value={{ personalarea.id }} hidden=true><input type="submit" value="change"></form></p>
+				<p> Password = ******** </p>
 		</ul>
 
     </body>
