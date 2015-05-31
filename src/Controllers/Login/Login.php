@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Controllers\Login;
 use Mpwarfwk\Controller\BaseController;
@@ -8,7 +8,7 @@ use Mpwarfwk\Database\PdoDatabase;
 use Mpwarfwk\Container\Container;
 
 class Login extends BaseController{
-    
+
 
     public function __construct() {
         $this->newContainer();
@@ -17,6 +17,7 @@ class Login extends BaseController{
     public function build(Request $request){
 
         $FORM_SUBMITTED_BY_METHOD = $request->server->getParam('REQUEST_METHOD');
+        $template = $this->container->get('TemplateTwig');
 
         if($FORM_SUBMITTED_BY_METHOD == 'POST'){
 
@@ -24,27 +25,33 @@ class Login extends BaseController{
 			$user = $request->cleanData($request->post->getParam('nombre'));
 			$password = $request->cleanData($request->post->getParam('contraseña'));
             $querySelect = $database->selectFromTable('SELECT id, password, active FROM users WHERE user = :user', array('user' => $user));
-            //echo count($querySelect);
-			//var_dump($querySelect[0]['password']);
-			//echo $password;
-			//if (count($querySelect) == 1 && $querySelect[0]['password'] == $password){
 			if (count($querySelect) == 1 && password_verify($password, $querySelect[0]['password']) && $querySelect[0]['active'] == 1){
-			
-				echo 'Estas dentro, ahora toca redirigir a la pagina de todolist y iniciar sesion';
-				/*la sesion ya se inicia desde el request*/
-				//session_start();
+
 				$request->session->setSession('valid_user', true);
-				$request->session->setSession('user_ref', $querySelect[0]['id']);
-				//echo $querySelect[0]['id'];
-				//echo var_dump($request->session->getSession('valid_user'));
-				//echo $_SESSION['valid_user'];
+                $request->session->setSession('user_ref', $querySelect[0]['id']);
+                $request->session->setSession('wakeup', 0);
+                $request->session->setSession('attempt', 0);
 				header("Location: http://www.seguridad.dev/contact");
-			}
-			//$template = $this->container->get('TemplateTwig');
-            //return new Response($template->render('Success/Success.tpl'));
+			} else {
+                return new Response($template->render('Login/LoginIncorrecto.build.tpl'));
+
+            }
         }
-  
-        $template = $this->container->get('TemplateTwig');
+
+        $wakeup = $request->cleanData($request->session->getSession('wakeup'));
+        $attempt = $request->cleanData($request->session->getSession('attempt'));
+        $wakeup = $wakeup ? $wakeup : 0;
+        $attempt = $attempt ? $attempt : 0;
+        if ($attempt === md5(3)) {
+            $request->session->setSession('wakeup', time() + (20 * 60));
+
+            return new Response($template->render('Login/SoManyAttempts.build.tpl'));
+        }
+        if (time() < $wakeup) {
+            return new Response($template->render('Login/SoManyAttempts.build.tpl'));
+        }
+        $request->session->setSession('attempt', md5($attempt + 1));
+
         return new Response($template->render('Login/Login.build.tpl'));
     }
 }

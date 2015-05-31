@@ -17,7 +17,7 @@
 		  <li><a href="/personalarea">Personal Area</a></li>
 		</ul>
 
-		<h4>Este email ya existe en la base de datos</h4>
+		<h4>El fichero tiene que ser una imagen detipo jpeg, png o gif.</h4>
 
 		<p><a href="/register">Inténtalo otra vez</a></p>
 

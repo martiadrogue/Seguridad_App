@@ -10,18 +10,15 @@
         <h2>Menú Principal</h2>
     	 <ul>
 		  <li><a href="/">Home</a></li>
-		  <li><a href="/test">Test</a></li>
-		  <li><a href="/subscriberlist">SubscriberList</a></li>
-          <li><a href="/subscribe">Subscribe to the newsleter</a></li>
 		  <li><a href="/login">Login</a></li>
 		  <li><a href="/register">Register</a></li>
 		  <li><a href="/contact">Contacts</a></li>
 		  <li><a href="/logout">Logout</a></li>
 		  <li><a href="/personalarea">Personal Area</a></li>
-		</ul> 
+		</ul>
 
 		<h3>modo edición:</h3>
-		
+
 		<ul>
         		<p><form action="/personalarea/update" method="post"><input type="text" name="data_updated" value="{{ personalarea.user }}"><input type="text" name="id" value={{ personalarea.id }} hidden=true><input type="submit" value="update"></form></p>
 		</ul>

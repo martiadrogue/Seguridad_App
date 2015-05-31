@@ -3,23 +3,8 @@ Home:
     path: /
     actiondefault: build
 
-Test:
-    resource: "Controllers\Test\Test"
-    path: /test
-    actiondefault: build
-
-SubscriberList:
-    resource: "Controllers\SubscriberList\SubscriberList"
-    path: /SubscriberList
-    actiondefault: build
-
-Subscribe:
-    resource: "Controllers\Subscribe\Subscribe"
-    path: /Subscribe
-    actiondefault: build
-
 Login:
-    resource: "Controllers\login\login"
+    resource: "Controllers\\Login\\Login"
     path: /Login
     actiondefault: build
 
@@ -34,12 +19,12 @@ Contact:
     actiondefault: build
 
 Logout:
-    resource: "Controllers\logout\logout"
+    resource: "Controllers\\Logout\\Logout"
     path: /Logout
     actiondefault: build
 
 PersonalArea:
-    resource: "Controllers\personalArea\personalArea"
+    resource: "Controllers\\PersonalArea\\PersonalArea"
     path: /PersonalArea
     actiondefault: build
 
@@ -56,4 +41,9 @@ LostPassword:
 ChangePassword:
     resource: "Controllers\ChangePassword\ChangePassword"
     path: /ChangePassword
+    actiondefault: build
+
+ValidUser:
+    resource: "Controllers\ValidUser\ValidUser"
+    path: /validUser
     actiondefault: build

@@ -23,6 +23,7 @@
 			"psr-4": {
 				"Config\\": "src/Config/",
 				"Controllers\\": "src/Controllers/",
+				"Common\\": "src/Common/",
 				"Templates\\": "src/Templates/"
 			}
 	}

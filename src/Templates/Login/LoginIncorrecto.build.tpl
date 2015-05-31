@@ -17,9 +17,11 @@
 		  <li><a href="/personalarea">Personal Area</a></li>
 		</ul>
 
-		<h4>Este email ya existe en la base de datos</h4>
+        <h3>Login incorrecto, por favor introduce los datos correctos.</h3>
 
-		<p><a href="/register">Inténtalo otra vez</a></p>
+        <p><a href="/Login">Vuelve a Login</a></p>
+
+	<p>Has olvidado tu password? <a href="/LostPassword">Recuperar</a></p>
 
     </body>
 </html>

@@ -8,15 +8,12 @@
         <h2>Menú Principal</h2>
     	 <ul>
 		  <li><a href="/">Home</a></li>
-		  <li><a href="/test">Test</a></li>
-		  <li><a href="/subscriberlist">SubscriberList</a></li>
-		  <li><a href="/subscribe">Subscribe to the newsleter</a></li>
 		  <li><a href="/login">Login</a></li>
 		  <li><a href="/register">Register</a></li>
 		  <li><a href="/contact">Contacts</a></li>
 		  <li><a href="/logout">Logout</a></li>
 		  <li><a href="/personalarea">Personal Area</a></li>
-		</ul> 
+		</ul>
 
         <h2>gracias por registrarte</h2>
         <h3>cuando quieras puedes hacer login</h3>

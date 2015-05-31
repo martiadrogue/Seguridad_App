@@ -6,6 +6,8 @@ use Mpwarfwk\Http\Request;
 use Mpwarfwk\Http\Response;
 use Mpwarfwk\Database\PdoDatabase;
 use Mpwarfwk\Container\Container;
+use Common\ImageHandler;
+use Common\MailSender;
 
 class Register extends BaseController{
 
@@ -15,10 +17,8 @@ class Register extends BaseController{
 
     public function build(Request $request){
 
-		//echo $request->server->getParam('HTTP_HOST');
-
-
         $FORM_SUBMITTED_BY_METHOD = $request->server->getParam('REQUEST_METHOD');
+        $template = $this->container->get('TemplateTwig');
 
         if($FORM_SUBMITTED_BY_METHOD == 'POST'){
 
@@ -30,55 +30,63 @@ class Register extends BaseController{
 			$passwordRepeat = $request->cleanData($request->post->getParam('contraseña2'));
 
 			if ($password != $passwordRepeat){
-				$template = $this->container->get('TemplateTwig');
 				return new Response($template->render('Register/PasswordRepeatNotMatch.build.tpl'));
 			}
 
 			$querySelectUser = $database->selectFromTable('SELECT id FROM users WHERE user = :user', array('user' => $user));
 
 			if (count($querySelectUser) > 0){
-				$template = $this->container->get('TemplateTwig');
 				return new Response($template->render('Register/UserAlreadyExists.build.tpl'));
 			}
 
 				if(!preg_match("/^[a-z\d_]{4,15}$/i",$user)) {
-					$template = $this->container->get('TemplateTwig');
 					return new Response($template->render('Register/NoValidUser.build.tpl'));
 				}
 
 				if($email == false) {
-					$template = $this->container->get('TemplateTwig');
 					return new Response($template->render('Register/NoValidEmail.build.tpl'));
 				}
 
 				$querySelectEmail = $database->selectFromTable('SELECT id FROM users WHERE email = :email', array('email' => $email));
 
 			if (count($querySelectEmail) > 0){
-				$template = $this->container->get('TemplateTwig');
 				return new Response($template->render('Register/EmailAlreadyExists.build.tpl'));
 			}
 
 				if(!preg_match("/^.*(?=.{8,})((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/",$password) || strlen($password) > 16) {
-					$template = $this->container->get('TemplateTwig');
 					return new Response($template->render('Register/NoValidPassword.build.tpl'));
 				}
+
+            $file = $request->files->getParam('retrato');
+            $imageHandler = new ImageHandler($file);
+            $publicImage = $imageHandler->sanitizeImageName();
+            if ($imageHandler->sanitizeImage()){
+                return new Response($template->render('Register/FileNotPermitted.build.tpl'));
+            }
+            $realImage = $imageHandler->moveImage($publicImage, $user);
+
 			$password = password_hash($password, PASSWORD_DEFAULT);
 			$temporalHash = password_hash($user, PASSWORD_DEFAULT);
-			$temporalHash = str_replace("/", "", $temporalHash);
-            $queryInsert = $database->insertInTable('INSERT INTO users SET user = :user, email = :email, password = :password, temporalhash = :temporalhash', array('user' => $user, 'email' => $email, 'password' => $password, 'temporalhash' => $temporalHash));
+            $dataToErase = [".", "/", "$", "%", "#", "<", ">", "|", ";", "&"];
+			$temporalHash = str_replace($dataToErase, "", $temporalHash);
+            $database->insertInTable(
+                'INSERT INTO users SET user = :user, email = :email, password = :password, temporalhash = :temporalhash, public_image = :public_image, real_image = :real_image',
+                array(
+                    'user' => $user,
+                    'email' => $email,
+                    'password' => $password,
+                    'temporalhash' => $temporalHash,
+                    'public_image' => $publicImage,
+                    'real_image' => $realImage,
+                )
+            );
 
-			$para      = $email;
-			$titulo    = 'Activacion cuenta usuario en seguridad.dev';
-			$mensaje   = 'Hola, ya casi hemos terminado, para activar tu cuenta en Seguridad.dev sólo debes hacer click en el siguiente enlace. Ten en cuenta que si no lo haces no podrás entrar en tu cuenta  http://www.seguridad.dev/accountverification/' . $temporalHash;
-			$cabeceras = 'From: webmaster@example.com' . "\r\n" . 'Reply-To: webmaster@example.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+            $mailtoSender = new MailSender();
+            $mailtoSender->sendMailRegisterVerification($email, $temporalHash);
 
-			mail($para, $titulo, $mensaje, $cabeceras);
-
-			$template = $this->container->get('TemplateTwig');
             return new Response($template->render('Register/MailSent.build.tpl'));
         }
 
-        $template = $this->container->get('TemplateTwig');
         return new Response($template->render('Register/Register.build.tpl'));
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Config;
 
-return array( "DATABASE" => "seguridad", 
-			  "HOST" => "localhost",  
-			  "USER" => "root", 
-			  "PASSWORD" => "strongpassword");
+return array( "DATABASE" => "seguridad",
+			  "HOST" => "localhost",
+			  "USER" => "root",
+			  "PASSWORD" => "12345");

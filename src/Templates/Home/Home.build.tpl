@@ -8,36 +8,18 @@
 <h2>Menú Principal</h2>
 <ul class = "navbar">
 		 <li><a href="/">Home</a></li>
-		 <li><a href="/test">Test</a></li>
-		 <li><a href="/subscriberlist">SubscriberList</a></li>
-		 <li><a href="/subscribe">Subscribe to the newsleter</a></li>
 		 <li><a href="/login">login</a></li>
 		 <li><a href="/register">Register</a></li>
 		 <li><a href="/contact">Contacts</a></li>
 		 <li><a href="/logout">Logout</a></li>
 		 <li><a href="/personalarea">Personal Area</a></li>
-</ul> 
+</ul>
 
 <pre>
-¡Bienvenido al Framework MPWAR!
+¡Bienvenido al Framework Seguridad!
 
-Esta es la página de home hecha con <strong>template Smarty:</strong>
+Applicacion hecho por Xavi Pera y Martí Adrogué dispone de una pagina de login, logout, register y una app CRUD de contactos y una area personal. Y ademas puedes subir imágenes. Y la hemos segurizado tan bien como hemos podido.
 
-Verás que arriba de todo tienes permanentemente un texto que te indica si estás en el entorno de desarrollo o en producción. Si el texto te molesta simplemente tienes que eliminarlo de los archivos <strong>public/index.php</strong> y <strong>public/index_dev.php</strong>
-
-Le he pasado unas variables como test. 
-Yo las veo como:
-<strong>
-Name: $name
-Address: $address
-</strong>
-Pero tu ahora mismo, gracias a Smarty las estarás viendo como:
-<strong>
-Name: {$name}
-Address: {$address}
-</strong>
-
-Puedes hacer más cosas con este Framework. Haz click en 'test' y te sigo contando :)
 </pre>
 
 </body>
