@@ -1,106 +1,79 @@
 <?php
-
 namespace Controllers\PersonalArea;
 use Mpwarfwk\Controller\BaseController;
 use Mpwarfwk\Http\Request;
 use Mpwarfwk\Http\Response;
 use Mpwarfwk\Database\PdoDatabase;
 use Mpwarfwk\Container\Container;
-
 class PersonalArea extends BaseController{
-
-
     public function __construct() {
         $this->newContainer();
     }
-
     public function build(Request $request){
-
         if ($request->session->getSession('valid_user') != true) {
 				$template = $this->container->get('TemplateTwig');
 				return new Response($template->render('Contact/noLoged.build.tpl'));
 		}
-
 		if ($request->session->getSession('valid_user') == true){
-
 			$database = new PdoDatabase();
 			$query = 'SELECT id, user FROM users WHERE id = ' . $request->cleanData($request->session->getSession('user_ref'));
 			$resultQuery = $database->selectFromTable($query);
-
 			$template = $this->container->get('TemplateTwig');
-
 			$array = array( 'personalarea' => $resultQuery[0]);
 			return new Response($template->render('PersonalArea/PersonalArea.build.tpl', $array));
 		}
 	}
-
 	public function changeUser(Request $request){
-
 		if ($request->session->getSession('valid_user') != true) {
 				$template = $this->container->get('TemplateTwig');
 				return new Response($template->render('Contact/noLoged.build.tpl'));
 		}
-
 		if ($request->session->getSession('valid_user') == true){
-
 			$FORM_SUBMITTED_BY_METHOD = $request->server->getParam('REQUEST_METHOD');
-
 			if($FORM_SUBMITTED_BY_METHOD == 'POST'){
-
 				$database = new PdoDatabase();
 				$id = $request->cleanData($request->post->getParam('id'));
-				$query = 'SELECT id, user FROM users WHERE id =' . $id;
-				$resultQuery = $database->selectFromTable($query);
-
-				$template = $this->container->get('TemplateTwig');
-
-				$array = array( 'personalarea' => $resultQuery[0]);
-				return new Response($template->render('PersonalArea/ChangeUser.build.tpl', $array));
+				$storedId = $request->session->getSession('user_ref');
+				if ($id == $storedId){
+					$query = 'SELECT id, user FROM users WHERE id =' . $id;
+					$resultQuery = $database->selectFromTable($query);
+					$template = $this->container->get('TemplateTwig');
+					$array = array( 'personalarea' => $resultQuery[0]);
+					return new Response($template->render('PersonalArea/ChangeUser.build.tpl', $array));
+				}
 			}
 		}
     }
-
 	public function changePassword(Request $request){
-
 		if ($request->session->getSession('valid_user') != true) {
 				$template = $this->container->get('TemplateTwig');
 				return new Response($template->render('Contact/noLoged.build.tpl'));
 		}
-
 		if ($request->session->getSession('valid_user') == true){
-
 			$FORM_SUBMITTED_BY_METHOD = $request->server->getParam('REQUEST_METHOD');
-
 			if($FORM_SUBMITTED_BY_METHOD == 'POST'){
-
 				// TODO: pendiente implementar sistema para cambiar pwd via link-email;
 			}
 		}
     }
-
 	public function update(Request $request){
-
 		if ($request->session->getSession('valid_user') != true) {
 				$template = $this->container->get('TemplateTwig');
 				return new Response($template->render('Contact/noLoged.build.tpl'));
 		}
-
 		if ($request->session->getSession('valid_user') == true){
-
 			$FORM_SUBMITTED_BY_METHOD = $request->server->getParam('REQUEST_METHOD');
-
 			if($FORM_SUBMITTED_BY_METHOD == 'POST'){
-
 				$database = new PdoDatabase();
 				$id = $request->cleanData($request->post->getParam('id'));
-				$newUser = $request->cleanData($request->post->getParam('data_updated'));
-				$resultQuery = $database->updateTable('UPDATE users SET user = :user WHERE id = :id', array('user' => $newUser, 'id' => $id));
-
-				$template = $this->container->get('TemplateTwig');
-
-				return new Response($template->render('PersonalArea/UpdateUser.build.tpl'));
+				$storedId = $request->session->getSession('user_ref');
+				if ($id == $storedId){
+					$newUser = $request->cleanData($request->post->getParam('data_updated'));
+					$resultQuery = $database->updateTable('UPDATE users SET user = :user WHERE id = :id', array('user' => $newUser, 'id' => $id));
+					$template = $this->container->get('TemplateTwig');
+					return new Response($template->render('PersonalArea/UpdateUser.build.tpl'));
+				}
 			}
 		}
     }
-
 }
