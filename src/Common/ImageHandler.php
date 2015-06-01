@@ -37,10 +37,6 @@ class ImageHandler
             return true;
         }
 
-        if ($this->verifyIfFileIsInfected()){
-            return true;
-        }
-
         return false;
     }
 
